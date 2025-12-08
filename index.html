@@ -810,6 +810,34 @@
             cursor: pointer;
         }
 
+        /* Impact Banner */
+        .impact-banner {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2));
+            border: 2px solid #00d4ff;
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 0 45px rgba(0, 212, 255, 0.7); }
+        }
+
+        .impact-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #00ffea;
+            margin-bottom: 10px;
+        }
+
+        .impact-subtext {
+            font-size: 1rem;
+            color: #b8e6f5;
+        }
+
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -823,7 +851,13 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
 
+
         <div class="intro-content">
+            <div class="impact-banner">
+                <div class="impact-text">Available for Internship Starting MAY 2026</div>
+                <div class="impact-subtext">1 Year Contract | Full-time Opportunity | Open to Relocation</div>
+            </div>
+            
             <h1>Security Focused</h1>
             <p class="intro-text">
                 Driven by a passion for cybersecurity and protecting the digital world! Information Security student with hands-on experience in cloud, network security, cryptography and threat analysis. Building secure solutions through innovation and continuous learning.
