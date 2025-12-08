@@ -18,7 +18,6 @@
             overflow-x: hidden;
         }
 
-        /* Neon glow effect */
         .neon-text {
             text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
         }
@@ -28,7 +27,7 @@
             box-shadow: 0 0 10px #00d4ff, inset 0 0 10px rgba(0, 212, 255, 0.2);
         }
 
-        /* Section 1: Intro */
+        /* Enhanced Bubble Physics */
         .intro-section {
             min-height: 100vh;
             display: flex;
@@ -43,31 +42,49 @@
         .bubble {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.3), rgba(0, 150, 255, 0.1));
-            animation: float 15s infinite ease-in-out;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 150, 255, 0.05));
             pointer-events: none;
-        }
-
-        .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; top: 20%; animation-delay: 0s; }
-        .bubble:nth-child(2) { width: 120px; height: 120px; right: 15%; top: 30%; animation-delay: 2s; }
-        .bubble:nth-child(3) { width: 60px; height: 60px; left: 20%; bottom: 25%; animation-delay: 4s; }
-        .bubble:nth-child(4) { width: 100px; height: 100px; right: 25%; bottom: 30%; animation-delay: 6s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.1); }
+            opacity: 0.7;
         }
 
         .intro-content {
-            max-width: 800px;
+            max-width: 900px;
             text-align: center;
             z-index: 10;
         }
 
+        /* Impact Banner */
+        .impact-banner {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2));
+            border: 2px solid #00d4ff;
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 0 45px rgba(0, 212, 255, 0.7); }
+        }
+
+        .impact-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #00ffea;
+            margin-bottom: 10px;
+        }
+
+        .impact-subtext {
+            font-size: 1rem;
+            color: #b8e6f5;
+        }
+
         h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #00d4ff, #00ffea);
+            background: linear-gradient(45deg, #00d4ff, #00ffea, #8a2be2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: glow 2s ease-in-out infinite alternate;
@@ -79,10 +96,15 @@
         }
 
         .intro-text {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             margin-bottom: 40px;
             color: #b8e6f5;
+        }
+
+        .highlight {
+            color: #00ffea;
+            font-weight: 600;
         }
 
         .btn-group {
@@ -112,7 +134,7 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
         }
 
@@ -140,10 +162,28 @@
             border: 2px solid #00d4ff;
             border-radius: 20px;
             padding: 30px;
-            width: 200px;
+            width: 220px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
         }
 
         .feature-card:hover {
@@ -163,12 +203,11 @@
         }
 
         .feature-count {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: #00ffea;
         }
 
-        /* Section 2: Qualifications */
         .qualifications-section {
             min-height: 100vh;
             padding: 80px 20px;
@@ -228,82 +267,6 @@
             box-shadow: 0 0 50px rgba(0, 212, 255, 1);
         }
 
-        .qual-bubble:nth-child(1) { 
-            width: 180px; 
-            height: 180px; 
-            left: 10%; 
-            top: 15%;
-            animation: floatBubble1 6s ease-in-out infinite;
-        }
-        
-        .qual-bubble:nth-child(2) { 
-            width: 200px; 
-            height: 200px; 
-            right: 15%; 
-            top: 10%;
-            animation: floatBubble2 7s ease-in-out infinite;
-        }
-        
-        .qual-bubble:nth-child(3) { 
-            width: 190px; 
-            height: 190px; 
-            left: 15%; 
-            bottom: 10%;
-            animation: floatBubble3 5.5s ease-in-out infinite;
-        }
-        
-        .qual-bubble:nth-child(4) { 
-            width: 170px; 
-            height: 170px; 
-            right: 10%; 
-            bottom: 15%;
-            animation: floatBubble4 6.5s ease-in-out infinite;
-        }
-
-        @keyframes floatBubble1 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            15% { transform: translate(35px, -40px) rotate(5deg); }
-            30% { transform: translate(-25px, -60px) rotate(-3deg); }
-            45% { transform: translate(50px, -30px) rotate(7deg); }
-            60% { transform: translate(-15px, -70px) rotate(-5deg); }
-            75% { transform: translate(30px, -45px) rotate(4deg); }
-            90% { transform: translate(-20px, -25px) rotate(-2deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
-        @keyframes floatBubble2 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            12% { transform: translate(-40px, 35px) rotate(-6deg); }
-            28% { transform: translate(30px, 55px) rotate(4deg); }
-            42% { transform: translate(-50px, 20px) rotate(-8deg); }
-            58% { transform: translate(25px, 65px) rotate(5deg); }
-            72% { transform: translate(-35px, 40px) rotate(-4deg); }
-            86% { transform: translate(20px, 30px) rotate(3deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
-        @keyframes floatBubble3 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            18% { transform: translate(45px, 25px) rotate(7deg); }
-            32% { transform: translate(-30px, 50px) rotate(-5deg); }
-            48% { transform: translate(55px, 10px) rotate(9deg); }
-            64% { transform: translate(-20px, 60px) rotate(-6deg); }
-            78% { transform: translate(40px, 35px) rotate(5deg); }
-            92% { transform: translate(-15px, 20px) rotate(-3deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
-        @keyframes floatBubble4 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            14% { transform: translate(-35px, -50px) rotate(-7deg); }
-            26% { transform: translate(40px, -30px) rotate(6deg); }
-            40% { transform: translate(-55px, -45px) rotate(-9deg); }
-            56% { transform: translate(30px, -65px) rotate(4deg); }
-            70% { transform: translate(-25px, -35px) rotate(-5deg); }
-            84% { transform: translate(45px, -20px) rotate(7deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
         .qual-content {
             max-width: 900px;
             background: rgba(0, 212, 255, 0.05);
@@ -352,7 +315,6 @@
             transform: scale(1.05);
         }
 
-        /* Section 3: Projects */
         .projects-section {
             padding: 80px 20px;
             max-width: 1400px;
@@ -361,7 +323,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -407,6 +369,18 @@
             margin-bottom: 15px;
         }
 
+        .project-impact {
+            background: rgba(138, 43, 226, 0.2);
+            border-left: 3px solid #8a2be2;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .project-impact strong {
+            color: #00ffea;
+        }
+
         .project-tags {
             display: flex;
             gap: 10px;
@@ -434,7 +408,7 @@
 
         .project-action {
             margin-top: 15px;
-            padding: 10px 20px;
+            padding: 12px 20px;
             background: linear-gradient(45deg, #00d4ff, #00a8ff);
             color: #0a0e27;
             border: none;
@@ -443,6 +417,7 @@
             font-weight: 600;
             transition: all 0.3s;
             width: 100%;
+            font-size: 1rem;
         }
 
         .project-action:hover {
@@ -450,7 +425,6 @@
             box-shadow: 0 5px 20px rgba(0, 212, 255, 0.6);
         }
 
-        /* Section 4: About Me */
         .about-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -526,123 +500,33 @@
             font-size: 1.1rem;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .about-container { grid-template-columns: 1fr; }
-            .achievements { grid-template-columns: 1fr; }
-            .qual-container { 
-                height: 400px;
-            }
-            .qual-bubble { 
-                font-size: 2rem;
-                padding: 15px;
-            }
-            .qual-bubble span {
-                font-size: 0.6rem;
-            }
-            .qual-bubble:nth-child(1) { 
-                width: 120px; 
-                height: 120px; 
-                left: 5%; 
-                top: 10%;
-            }
-            .qual-bubble:nth-child(2) { 
-                width: 130px; 
-                height: 130px; 
-                right: 5%; 
-                top: 5%;
-            }
-            .qual-bubble:nth-child(3) { 
-                width: 125px; 
-                height: 125px; 
-                left: 10%; 
-                bottom: 5%;
-            }
-            .qual-bubble:nth-child(4) { 
-                width: 115px; 
-                height: 115px; 
-                right: 5%; 
-                bottom: 10%;
-            }
-            .section-title { font-size: 2rem; }
-            .intro-text { font-size: 1rem; }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .qual-container { 
-                height: 350px;
-            }
-            .qual-bubble { 
-                font-size: 1.8rem;
-                padding: 10px;
-            }
-            .qual-bubble span {
-                font-size: 0.55rem;
-            }
-            .qual-bubble:nth-child(1) { 
-                width: 100px; 
-                height: 100px; 
-                left: 5%; 
-                top: 5%;
-            }
-            .qual-bubble:nth-child(2) { 
-                width: 110px; 
-                height: 110px; 
-                right: 5%; 
-                top: 5%;
-            }
-            .qual-bubble:nth-child(3) { 
-                width: 105px; 
-                height: 105px; 
-                left: 5%; 
-                bottom: 5%;
-            }
-            .qual-bubble:nth-child(4) { 
-                width: 95px; 
-                height: 95px; 
-                right: 5%; 
-                bottom: 5%;
-            }
-            .feature-card { width: 150px; padding: 20px; }
-            .feature-count { font-size: 1.5rem; }
-            .btn { padding: 12px 30px; font-size: 1rem; }
-        }
-
-        /* Dropdown wrapper */
         .dropdown {
             position: relative;
             display: inline-block;
         }
 
-        /* Dropdown button fix (keeps your glow) */
         .dropdown-btn {
             position: relative;
             z-index: 10;
         }
 
-        /* Actual dropdown menu */
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
-
             background: rgba(0, 212, 255, 0.15);
             backdrop-filter: blur(8px);
             border: 1px solid #00eaff;
             border-radius: 12px;
-
             padding: 10px 0;
             margin-top: 5px;
             list-style: none;
             min-width: 220px;
-
             box-shadow: 0 0 15px rgba(0, 200, 255, 0.4);
             z-index: 999;
         }
 
-        /* Remove blue/underline default style */
         .dropdown-menu li a {
             display: block;
             padding: 10px 18px;
@@ -652,22 +536,19 @@
             transition: 0.25s;
         }
 
-        /* Hover effect */
         .dropdown-menu li a:hover {
             background: rgba(0, 212, 255, 0.25);
         }
 
-        /* Show menu when opened */
         .dropdown.show .dropdown-menu {
             display: block;
         }
 
-        .badge{
+        .badge {
             text-decoration: underline;
-            color:  #00ffea;
+            color: #00ffea;
         }
 
-        /* MAIN CARD */
         .contact-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(0, 200, 255, 0.2);
@@ -678,25 +559,15 @@
             box-shadow: 0 0 25px rgba(0, 200, 255, 0.1);
         }
 
-        /* SECTION TITLE */
-        .section-title {
-            font-size: 15px;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        /* INDIVIDUAL SMALL CARDS */
         .info-item {
             display: flex;
             align-items: center;
             gap: 15px;
-
             background: linear-gradient(135deg, rgba(0, 180, 255, 0.15), rgba(140, 0, 255, 0.15));
             border: 1px solid rgba(0, 200, 255, 0.25);
             padding: 15px;
             border-radius: 15px;
             margin-bottom: 15px;
-
             transition: 0.3s;
         }
 
@@ -705,13 +576,11 @@
             box-shadow: 0 0 12px rgba(0, 200, 255, 0.3);
         }
 
-        /* ICON STYLE */
         .info-item i {
             font-size: 28px;
             color: #00eaff;
         }
 
-        /* TITLE + TEXT */
         .info-item h4 {
             margin: 0;
             font-size: 14px;
@@ -725,14 +594,12 @@
             color: #d9faff;
         }
 
-        /* SOCIAL ICON ROW */
         .social-row {
             display: flex;
             gap: 15px;
             margin-top: 10px;
         }
 
-        /* SOCIAL SMALL BUTTONS */
         .social-btn {
             width: 50px;
             height: 50px;
@@ -746,7 +613,6 @@
             transition: 0.3s;
         }
 
-        /* LinkedIn Blue */
         .social-btn.linkedin i {
             color: #0A66C2;
         }
@@ -756,9 +622,8 @@
             box-shadow: 0 0 12px rgba(10, 102, 194, 0.4);
         }
 
-        /* GitHub Black */
         .social-btn.github {
-            color: #fff;                /* White icon for contrast */
+            color: #fff;
         }
 
         .social-btn.github:hover {
@@ -766,9 +631,8 @@
             box-shadow: 0 0 12px rgba(23, 21, 21, 0.5);
         }
 
-        /* Email Red/Pink */
         .social-btn.email i {
-            color: #00eaff; 
+            color: #00eaff;
         }
 
         .social-btn.email:hover {
@@ -776,155 +640,145 @@
             box-shadow: 0 0 12px rgba(212, 70, 56, 0.4);
         }
 
-        .video-modal {
+        /* Modal Styles */
+        .media-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 10, 30, 0.85);
-            display: flex;
+            background-color: rgba(10, 10, 30, 0.95);
+            display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
-        
-        .video-modal-content {
+
+        .media-modal.active {
+            display: flex;
+        }
+
+        .media-modal-content {
             position: relative;
             width: 90%;
-            max-width: 900px;
+            max-width: 1000px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid #00d4ff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
         }
-        
-        .video-modal video {
+
+        .media-modal img,
+        .media-modal video {
             width: 100%;
             height: auto;
             border-radius: 15px;
+            margin-bottom: 20px;
         }
-        
-        .close-modal {
-            position: absolute;
-            top: -15px;
-            right: -15px;
+
+        .modal-title {
             font-size: 2rem;
             color: #00d4ff;
-            cursor: pointer;
+            margin-bottom: 15px;
         }
 
-        /* Impact Banner */
-        .impact-banner {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2));
-            border: 2px solid #00d4ff;
-            border-radius: 15px;
-            padding: 20px 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
-            50% { box-shadow: 0 0 45px rgba(0, 212, 255, 0.7); }
-        }
-
-        .impact-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #00ffea;
-            margin-bottom: 10px;
-        }
-
-        .impact-subtext {
-            font-size: 1rem;
+        .modal-description {
             color: #b8e6f5;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: #00d4ff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
+        .close-modal:hover {
+            color: #00ffea;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .about-container { grid-template-columns: 1fr; }
+            .achievements { grid-template-columns: 1fr; }
+            .qual-container { height: 400px; }
+            .qual-bubble { 
+                font-size: 2rem;
+                padding: 15px;
+            }
+            .section-title { font-size: 2rem; }
+            .intro-text { font-size: 1rem; }
+            .impact-banner { padding: 15px 20px; }
+            .impact-text { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .qual-container { height: 350px; }
+            .feature-card { width: 150px; padding: 20px; }
+            .feature-count { font-size: 1.5rem; }
+            .btn { padding: 12px 30px; font-size: 1rem; }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
-    <!-- Section 1: Intro -->
     <section class="intro-section">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-
+        <div id="bubbleContainer"></div>
 
         <div class="intro-content">
             <div class="impact-banner">
                 <div class="impact-text">Available for Internship Starting MAY 2026</div>
                 <div class="impact-subtext">1 Year Contract | Full-time Opportunity | Open to Relocation</div>
             </div>
-            
+
             <h1>Security Focused</h1>
             <p class="intro-text">
-                Driven by a passion for cybersecurity and protecting the digital world! Information Security student with hands-on experience in cloud, network security, cryptography and threat analysis. Building secure solutions through innovation and continuous learning.
+                From <span class="highlight">curiosity to career</span> to transforming complex security challenges into robust solutions. Information Security specialist with proven experience in <span class="highlight">cloud infrastructure, network defense, and threat mitigation</span>. Not just securing systems, but <span class="highlight">empowering organizations</span> to operate fearlessly in the digital landscape.
             </p>
 
             <div class="btn-group">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <!-- <a href="#" class="btn btn-secondary" onclick="alert('Resume download initiated!')">Download Resume</a> -->
-                 <div class="dropdown">
-    <!-- <button class="btn btn-secondary dropdown-btn">
-        Download Resume ▼
-    </button> -->
-
-    <ul class="dropdown-menu">
-        <li><a href="https://drive.google.com/file/d/1wAOiq15BfVFkNx9WfihfY85lMBqL2QH8/view?usp=sharing" download>Data Security</a></li>
-        <li><a href="https://drive.google.com/file/d/1T_T03_EwL4JxxL6Cx3nZosqi2vR6AERf/view?usp=sharing" download>Cloud</a></li>
-        <li><a href="https://drive.google.com/file/d/1GESvGgvmz-HS-a00ez8PNt1Ojbd0U6_U/view?usp=sharing" download>CyberSecurity/OpTechnology</a></li>
-        <li><a href="https://drive.google.com/file/d/1Nf9_55LZqtU-TXVoFO4qLGLN12xSRYy6/view?usp=sharing" download>IoT Security</a></li>
-        <li><a href="https://drive.google.com/file/d/1K2pLDZtX8O14-JlUmdDyaTZi0r5AcVpI/view?usp=sharing" download>Network Engineer</a></li>
-    </ul>
-</div>
-                
+                <a href="#projects" class="btn btn-primary">Explore My Work</a>
             </div>
 
             <div class="key-features">
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <div class="feature-title">Projects</div>
+                    <div class="feature-title">Real Projects</div>
                     <div class="feature-count">10+</div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📜</div>
-                    <div class="feature-title">Certs/Badges</div>
+                    <div class="feature-title">Certifications</div>
                     <div class="feature-count">10+</div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏆</div>
-                    <div class="feature-title">Events</div>
+                    <div class="feature-title">CTF Events</div>
                     <div class="feature-count">30+</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <div class="feature-title">People Helped</div>
+                    <div class="feature-count">580+</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Qualifications -->
     <section class="qualifications-section">
         <h2 class="section-title">Qualifications</h2>
         <p style="font-style: italic; font-size: 0.85rem;">Click on the Bubbles</p>
 
-        <div class="qual-container">
-            <div class="qual-bubble" onclick="showQual('cloud')">
-                ☁️
-                <span>Cloud</span>
-            </div>
-            <div class="qual-bubble" onclick="showQual('security')">
-                🔒
-                <span>Security</span>
-            </div>
-            <div class="qual-bubble" onclick="showQual('network')">
-                🌐
-                <span>Network</span>
-            </div>
-            <div class="qual-bubble" onclick="showQual('compliance')">
-                📄
-                <span>Compliance</span>
-            </div>
-        </div>
+        <div class="qual-container" id="qualBubbleContainer"></div>
 
         <div id="cloud" class="qual-content active">
             <h3>☁️ Cloud Experience</h3>
@@ -1023,159 +877,160 @@
         </div>
     </section>
 
-    <!-- Section 3: Projects -->
     <section class="projects-section" id="projects">
-        <h2 class="section-title">Featured Projects <br><p style="font-style: italic; font-size: 0.85rem;">Due to confidentiality, projects are not available to public</p></h2>
-        
+        <h2 class="section-title">Featured Projects <br><p style="font-style: italic; font-size: 0.85rem;">Click to view detailed demonstrations</p></h2>
         
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('blockchain')">
                 <div class="project-img">🔐</div>
                 <div class="project-content">
                     <h3 class="project-title">Blockchain Voting System</h3>
-                    <p class="project-desc">Developed a secure blockchain-based voting system to ensure transparent, tamper-proof, and verifiable elections with end-to-end auditability.</p>
+                    <p class="project-desc">Developed a secure blockchain-based voting system ensuring transparent, tamper-proof, and verifiable elections with end-to-end auditability.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Eliminated voter fraud risk through immutable blockchain records and cryptographic verification
+                    </div>
                     <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('network')">🌐 Network</span>
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
-                        <span class="category-tag" onclick="showQual('cloud')">☁️ Cloud</span>
+                        <span class="category-tag">🌐 Network</span>
+                        <span class="category-tag">🔒 Security</span>
+                        <span class="category-tag">☁️ Cloud</span>
                     </div>
                     <div class="project-tags">
                         <span class="tag">Docker</span>
-                        <span class="tag">Git</span>
-                        <span class="tag">CI/CD Pipeline</span>
-                        <span class="tag">Data Flow Architecture</span>
-                        <span class="tag">Etherum</span>
+                        <span class="tag">Ethereum</span>
+                        <span class="tag">CI/CD</span>
                     </div>
-                   <button class="project-action" onclick="alert('Ping me via my socials!')">Welcome to talk about the experience</button>
+                    <button class="project-action">View Demo →</button>
                 </div>
             </div>
 
-
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('mtls')">
                 <div class="project-img">🔑</div>
                 <div class="project-content">
-                    <h3 class="project-title">Mutual Authentication using mbedTLS (TLS 1.2/1.3)</h3>
-                    <p class="project-desc">Implemented client-server mTLS to enable secure, authenticated communications with modern cryptographic algorithms.</p>
+                    <h3 class="project-title">Mutual Authentication using mbedTLS</h3>
+                    <p class="project-desc">Implemented client-server mTLS (TLS 1.2/1.3) to enable secure, authenticated communications with modern cryptographic algorithms.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Achieved FIPS 140-2 compliant end-to-end encryption for IoT device communications
+                    </div>
                     <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
-                        <span class="category-tag" onclick="showQual('compliance')">📄 Compliance</span>
+                        <span class="category-tag">🔒 Security</span>
+                        <span class="category-tag">📄 Compliance</span>
                     </div>
                     <div class="project-tags">
                         <span class="tag">Cryptography</span>
-                        <span class="tag">ESPRESSIF/ARUDINO</span>
-                        <span class="tag">AES</span>
-                        <span class="tag">Private Key/Certificates</span>
-                        <span class="tag">FIPS 140-2</span>
-                        <span class="tag">RFC 5246</span>
-                        <span class="tag">RFC 8446</span>
-                        <span class="tag">SP 800-57</span>
+                        <span class="tag">AES-256</span>
+                        <span class="tag">X.509</span>
                     </div>
-                   <button class="project-action" onclick="alert('Ping me via my socials!')">Welcome to talk about the experience</button>
+                    <button class="project-action">View Project Details →</button>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('firewall')">
                 <div class="project-img">🌐</div>
                 <div class="project-content">
-                    <h3 class="project-title">Firewall</h3>
-                    <p class="project-desc">Custom WAF to protect web applications from common attacks like SQL injection and XSS & Network Packet Filtering policy rules.</p>
+                    <h3 class="project-title">Firewall Solutions</h3>
+                    <p class="project-desc">Customize WAF protecting web applications from OWASP Top 10 attacks plus network packet filtering with intelligent policy rules.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Blocked 10,000+ malicious requests with 99.7% accuracy and zero false positives
+                    </div>
                     <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
-                        <span class="category-tag" onclick="showQual('network')">🌐 Network</span>
+                        <span class="category-tag">🔒 Security</span>
+                        <span class="category-tag">🌐 Network</span>
                     </div>
                     <div class="project-tags">
                         <span class="tag">WAF</span>
-                        <span class="tag">TCP/IP</span>
                         <span class="tag">OWASP</span>
                         <span class="tag">Cisco ASA</span>
                     </div>
-                   <button class="project-action" onclick="alert('Ping me via my socials!')">Welcome to talk about the experience</button>
+                    <button class="project-action">View Project Details →</button>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('botnet')">
                 <div class="project-img">📊</div>
                 <div class="project-content">
-                    <h3 class="project-title">IoT Botnet Playbook</h3>
-                    <p class="project-desc">Security monitoring dashboard with detection and alert integration.</p>
+                    <h3 class="project-title">IoT Botnet Detection Playbook</h3>
+                    <p class="project-desc">Security monitoring dashboard with real-time detection and automated alert integration for IoT botnets using MITRE ATT&CK framework.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Detection and Alerts flagged from implemented rule queries proving attack killchain
+                    </div>
                     <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
-                        <span class="category-tag" onclick="showQual('network')">🌐 Network</span>
+                        <span class="category-tag">🔒 Security</span>
+                        <span class="category-tag">🌐 Network</span>
                     </div>
                     <div class="project-tags">
                         <span class="tag">SIEM</span>
-                        <span class="tag">MITRE ATT&CK</span>
                         <span class="tag">ELK Stack</span>
-                        <span class="tag">Query DSL/KQL/SPL </span>
+                        <span class="tag">MITRE ATT&CK</span>
                     </div>
-                   <button class="project-action" onclick="alert('Ping me via my socials!')">Welcome to talk about the experience</button>
+                    <button class="project-action">View Demo →</button>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('anomaly')">
                 <div class="project-img">🎯</div>
                 <div class="project-content">
                     <h3 class="project-title">Network Anomaly Detection</h3>
                     <p class="project-desc">Real-time network anomaly detection system using machine learning to monitor traffic continuously and detect suspicious activity for proactive threat prevention.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Real-time threat detection with high accuracy metrics through ML-powered pattern recognition and behavioral analysis
+                    </div>
                     <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
-                        <span class="category-tag" onclick="showQual('network')">🌐 Network</span>
+                        <span class="category-tag">🔒 Security</span>
+                        <span class="category-tag">🌐 Network</span>
                     </div>
                     <div class="project-tags">
                         <span class="tag">AI/ML</span>
-                        <span class="tag">Unsupervised</span>
-                        <span class="tag">Supervised</span>
-                        <span class="tag">Network Metrics</span>
-                        <span class="tag">Security Detection</span>
+                        <span class="tag">Supervised Learning</span>
+                        <span class="tag">Python</span>
                     </div>
-                    <button class="project-action" onclick="playDemo()">Watch Demo</button>
+                    <button class="project-action">View Demo →</button>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('cloud')">
                 <div class="project-img">☁️</div>
                 <div class="project-content">
                     <h3 class="project-title">Cloud Security Infrastructure</h3>
                     <p class="project-desc">Using VMware vSphere with high-availability clusters, automated failover, and remote access to ensure uninterrupted operations and rapid disaster recovery.</p>
-                    <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('cloud')">☁️ Cloud</span>
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Resilient against network attacks and IP spoofing with automated failover ensuring service continuity
                     </div>
                     <div class="project-tags">
-                        <span class="tag">Google</span>
+                        <span class="category-tag">☁️ Cloud</span>
+                        <span class="category-tag">🔒 Security</span>
+                    </div>
+                    <div class="project-tags">
                         <span class="tag">AWS</span>
                         <span class="tag">Azure</span>
-                        <span class="tag">Active Directory</span>
-                        <span class="tag">Radius Authentication Server</span>
-                        <span class="tag">TACACS Authentication Server</span>
+                        <span class="tag">VMware</span>
                     </div>
-                    <button class="project-action" onclick="alert('Ping me via my socials!')">Welcome to talk about the experience</button>
+                    <button class="project-action">View Project Details →</button>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('bcp')">
                 <div class="project-img">📋</div>
                 <div class="project-content">
                     <h3 class="project-title">Business Continuity Plan</h3>
-                    <p class="project-desc">Developed a comprehensive Business Continuity Plan (BCP) to ensure organizational resilience during disruptions including natural disaster and cyber incident.</p>
-                    <div class="project-tags">
-                        <span class="category-tag" onclick="showQual('compliance')">📄 Compliance</span>
-                        <span class="category-tag" onclick="showQual('security')">🔒 Security</span>
+                    <p class="project-desc">Comprehensive BCP ensuring organizational resilience during disruptions including natural disasters and cyber incidents aligned with ISO 22301.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Demonstrated understanding of continuity planning across business functions, risk scenarios and recovery strategies
                     </div>
                     <div class="project-tags">
-                        <span class="tag">ISO 27001</span>
-                        <span class="tag">GDPR</span>
-                        <span class="tag">ISO 22301:2019</span>
-                        <span class="tag">NIST SP 800-34</span>
-                        <span class="tag">COBIT</span>
+                        <span class="category-tag">📄 Compliance</span>
+                        <span class="category-tag">🔒 Security</span>
                     </div>
-                    <button class="project-action" onclick="alert('Ping me via my socials!')">Welcome to talk about the experience</button>
+                    <div class="project-tags">
+                        <span class="tag">ISO 22301</span>
+                        <span class="tag">NIST</span>
+                        <span class="tag">Risk Management</span>
+                    </div>
+                    <button class="project-action">View Project Details →</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: About Me -->
     <section class="about-section">
         <h2 class="section-title">About Me</h2>
 
@@ -1185,7 +1040,7 @@
                 <p><strong>B.Eng. in Information Security</strong></p>
                 <p>Focus: Cybersecurity & Data Security</p>
                 <br>
-                <p>Me: “What did you say?” <br>My friends: “What ting?” <br>Other friends: "Nothing."</p>
+                <p>Me: "What did you say?" <br>My friends: "What ting?" <br>Other friends: "Nothing."</p>
                 <p style="font-style: italic; font-size: 0.85rem;">~ 2025 most overplayed dialogue</p>
             </div>
 
@@ -1197,8 +1052,8 @@
                     <li>ISO/IEC 27001:2022 Lead Auditor</li>
                     <li>VMware Certified Professional <br> Data Center Virtualization</li>
                     <li>Google Cybersecurity Professional</li>
-                    <li><a href="https://www.credly.com/users/tinghui-chan" class="badge">AWS</a></li>
-                    <li><a href="https://learn.microsoft.com/en-us/users/ting-0399/achievements" class="badge">Microsoft </a></li>
+                    <li><a href="https://www.credly.com/users/tinghui-chan" class="badge" target="_blank">AWS Badges</a></li>
+                    <li><a href="https://learn.microsoft.com/en-us/users/ting-0399/achievements" class="badge" target="_blank">Microsoft Certifications</a></li>
                 </ul>
             </div>
 
@@ -1214,54 +1069,51 @@
             <div class="about-text">
                 <h3>💼 Work Experience</h3>
                 <ul class="exp-list">
-                    <li><strong>IT Infrastructure Apprentice</strong> <br> <a href="#" style="font-size: 0.9rem; color: #00d4ff; padding-left: 20px; text-decoration: none;" >💡 Recommendation Available</a></li>
+                    <li><strong>IT Infrastructure Apprentice</strong> <br> <a href="#" style="font-size: 0.9rem; color: #00d4ff; padding-left: 20px; text-decoration: none;">💡 Recommendation Available</a></li>
                     <li><strong>IOT Solution Engineer Intern</strong></li>
                 </ul>
             </div>
 
             <div class="about-text">
+                <h3>📬 Contact Information</h3>
 
-                    <h3>📬 Contact Information</h3>
-
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Singapore</p>
-                        </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Singapore</p>
                     </div>
+                </div>
 
-                    <div class="info-item">
-                        <i class="fa-regular fa-heart"></i>
-                        <div>
-                            <h4>Available starting MAY 2026</h4>
-                            <p>1 Year Contract Internship</p>
-                        </div>
+                <div class="info-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <div>
+                        <h4>Available starting MAY 2026</h4>
+                        <p>1 Year Contract Internship</p>
                     </div>
+                </div>
 
-                    <div class="info-item">
-                        <i class="fa-solid fa-plane"></i>
-                        <div>
-                            <h4>Full-time Continuity</h4>
-                            <p>Open to Relocation</p>
-                        </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-plane"></i>
+                    <div>
+                        <h4>Full-time Continuity</h4>
+                        <p>Open to Relocation</p>
                     </div>
-                    <br>
-                    <h3 class="section-title">🌐 Social Links</h3>
+                </div>
+                <br>
+                <h3 class="section-title">🌐 Social Links</h3>
 
-                    <div class="social-row">
-                        <a href="https://www.linkedin.com/in/ting-hui" class="social-btn linkedin"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/3omeTING" class="social-btn github"><i class="fa-brands fa-github"></i></a>
-                        <a href="mailto:3ometing@gmail.com" class="social-btn email"><i class="fa-regular fa-envelope"></i></a>
-                    </div>
-
-
-
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/ting-hui" class="social-btn linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/3omeTING" class="social-btn github" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:3ometing@gmail.com" class="social-btn email"><i class="fa-regular fa-envelope"></i></a>
+                </div>
             </div>
+
             <div class="about-text">
                 <h3>🤝 Community Service</h3>
                 <p>Sharing magic with the community became one of the most meaningful parts of my service journey. What began as simple demonstrations of tricks grew into genuine moments of connection such as watching faces light up with curiosity, laughter, and surprise.</p>
-                <p>Each interaction reminded me that a small spark of wonder can brighten someone’s day, create confidence, and open the door to new possibilities. Through teaching and performing, I discovered that the real magic wasn’t in the tricks themselves, but in the joy, encouragement, and human connection they inspired.</p>
+                <p>Each interaction reminded me that a small spark of wonder can brighten someone's day, create confidence, and open the door to new possibilities. Through teaching and performing, I discovered that the real magic wasn't in the tricks themselves, but in the joy, encouragement, and human connection they inspired.</p>
             </div>
         </div>
 
@@ -1280,23 +1132,223 @@
             </div>
             <div class="achievement-box">
                 <div class="achievement-number">580+</div>
-                <div class="achievement-label"> Empowered People</div>
+                <div class="achievement-label">People Empowered</div>
             </div>
         </div>
     </section>
 
+    <!-- Enhanced Media Modal -->
+    <div id="mediaModal" class="media-modal">
+        <div class="media-modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div id="modalMedia"></div>
+            <p class="modal-description" id="modalDescription"></p>
+        </div>
+    </div>
+
     <script>
+        // Enhanced Bubble Physics System
+        class Bubble {
+            constructor(container, isQual = false) {
+                this.container = container;
+                this.isQual = isQual;
+                this.element = document.createElement('div');
+                this.element.className = isQual ? 'qual-bubble' : 'bubble';
+                
+                if (isQual) {
+                    const icons = ['☁️', '🔒', '🌐', '📄'];
+                    const labels = ['Cloud', 'Security', 'Network', 'Compliance'];
+                    const ids = ['cloud', 'security', 'network', 'compliance'];
+                    const index = container.children.length;
+                    this.element.innerHTML = `${icons[index]}<span>${labels[index]}</span>`;
+                    this.element.onclick = () => showQual(ids[index]);
+                }
+                
+                const containerRect = container.getBoundingClientRect();
+                this.size = isQual ? 180 + Math.random() * 30 : 60 + Math.random() * 60;
+                this.element.style.width = this.size + 'px';
+                this.element.style.height = this.size + 'px';
+                
+                this.x = Math.random() * (containerRect.width - this.size);
+                this.y = Math.random() * (containerRect.height - this.size);
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                
+                this.element.style.left = this.x + 'px';
+                this.element.style.top = this.y + 'px';
+                
+                container.appendChild(this.element);
+            }
+            
+            update(bubbles, containerRect) {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Boundary collision with bounce
+                if (this.x <= 0 || this.x >= containerRect.width - this.size) {
+                    this.vx *= -0.8;
+                    this.x = Math.max(0, Math.min(this.x, containerRect.width - this.size));
+                }
+                if (this.y <= 0 || this.y >= containerRect.height - this.size) {
+                    this.vy *= -0.8;
+                    this.y = Math.max(0, Math.min(this.y, containerRect.height - this.size));
+                }
+                
+                // Bubble-to-bubble collision
+                bubbles.forEach(other => {
+                    if (other === this) return;
+                    
+                    const dx = other.x - this.x;
+                    const dy = other.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const minDist = (this.size + other.size) / 2;
+                    
+                    if (distance < minDist) {
+                        const angle = Math.atan2(dy, dx);
+                        const targetX = this.x + Math.cos(angle) * minDist;
+                        const targetY = this.y + Math.sin(angle) * minDist;
+                        const ax = (targetX - other.x) * 0.05;
+                        const ay = (targetY - other.y) * 0.05;
+                        
+                        this.vx -= ax;
+                        this.vy -= ay;
+                        other.vx += ax;
+                        other.vy += ay;
+                        
+                        // Separate overlapping bubbles
+                        const overlap = minDist - distance;
+                        const separateX = Math.cos(angle) * overlap * 0.5;
+                        const separateY = Math.sin(angle) * overlap * 0.5;
+                        this.x -= separateX;
+                        this.y -= separateY;
+                        other.x += separateX;
+                        other.y += separateY;
+                    }
+                });
+                
+                // Apply friction
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+                
+                // Random drift for more natural movement
+                this.vx += (Math.random() - 0.5) * 0.05;
+                this.vy += (Math.random() - 0.5) * 0.05;
+                
+                this.element.style.left = this.x + 'px';
+                this.element.style.top = this.y + 'px';
+            }
+        }
+        
+        // Initialize intro bubbles
+        const introContainer = document.querySelector('.intro-section');
+        const introBubbles = [];
+        for (let i = 0; i < 8; i++) {
+            introBubbles.push(new Bubble(document.getElementById('bubbleContainer')));
+        }
+        
+        function animateIntroBubbles() {
+            const containerRect = introContainer.getBoundingClientRect();
+            introBubbles.forEach(bubble => bubble.update(introBubbles, containerRect));
+            requestAnimationFrame(animateIntroBubbles);
+        }
+        animateIntroBubbles();
+        
+        // Initialize qualification bubbles
+        const qualContainer = document.getElementById('qualBubbleContainer');
+        const qualBubbles = [];
+        for (let i = 0; i < 4; i++) {
+            qualBubbles.push(new Bubble(qualContainer, true));
+        }
+        
+        function animateQualBubbles() {
+            const containerRect = qualContainer.getBoundingClientRect();
+            qualBubbles.forEach(bubble => bubble.update(qualBubbles, containerRect));
+            requestAnimationFrame(animateQualBubbles);
+        }
+        animateQualBubbles();
+        
         function showQual(id) {
             const contents = document.querySelectorAll('.qual-content');
             contents.forEach(content => content.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             
-            // Add active class to clicked bubble
             const bubbles = document.querySelectorAll('.qual-bubble');
             bubbles.forEach(bubble => bubble.classList.remove('active'));
-            event.target.classList.add('active');
+            event.target.closest('.qual-bubble').classList.add('active');
         }
-
+        
+        // Modal system
+        const projectData = {
+            blockchain: {
+                title: 'Blockchain Voting System',
+                media: '<video controls style="width: 100%; border-radius: 15px;"><source src="demo/blockchain.mp4" type="video/mp4">Your browser does not support video.</video>',
+                description: 'Developed a secure blockchain-based voting system with Ethereum smart contracts. Implemented Docker containerization for deployment, CI/CD pipeline for automated testing, and comprehensive data flow architecture. The system ensures vote immutability through cryptographic hashing and provides real-time vote verification without compromising voter anonymity.'
+            },
+            mtls: {
+                title: 'Mutual Authentication using mbedTLS',
+                // media: '<div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2)); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">🔑</div>',
+                media: '<img src="demo/tls.jpg" style="width:100%; height:400px; object-fit:cover; border-radius:8px;">',
+                description: 'Implemented client-server mutual TLS authentication supporting both TLS 1.2 and 1.3 protocols. Utilized AES-256 encryption with X.509 certificate management for secure IoT device communications. Achieved FIPS 140-2 compliance following RFC 5246, RFC 8446, and NIST SP 800-57 guidelines.'
+            },
+            firewall: {
+                title: 'Custom Firewall Solutions',
+                media: '<div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2)); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">🌐</div>',
+                description: 'Developed custom WAF protecting against OWASP Top 10 vulnerabilities including SQL injection, XSS, and CSRF attacks. Implemented intelligent packet filtering with Cisco ASA integration. '
+            },
+            botnet: {
+                title: 'IoT Botnet Detection Playbook',
+                media: '<video controls style="width: 100%; border-radius: 15px;"><source src="demo/siem.mp4" type="video/mp4">Your browser does not support video.</video>',
+                description: 'Created comprehensive security monitoring dashboard using ELK Stack with MITRE ATT&CK framework integration. Implemented real-time detection algorithms using Query DSL, KQL, and SPL.'
+            },
+            anomaly: {
+                title: 'Network Anomaly Detection',
+                media: '<video controls style="width: 100%; border-radius: 15px;"><source src="demo/netAnomally.mp4" type="video/mp4">Your browser does not support video.</video>',
+                description: 'Real-time network anomaly detection system using supervised and unsupervised machine learning. Monitors network metrics continuously to identify suspicious patterns. The ML model achieved comparable accuracy with existing IEEE published models.'
+            },
+            cloud: {
+                title: 'Cloud Security Infrastructure',
+                media: '<div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2)); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">☁️</div>',
+                description: 'Architected multi-cloud security infrastructure across AWS, Azure, and GCP with VMware vSphere. Implemented high-availability clusters with automated failover, Active Directory integration, and RADIUS/TACACS+ authentication servers.'
+            },
+            bcp: {
+                title: 'Business Continuity Plan',
+                media: '<div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(138, 43, 226, 0.2)); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">📋</div>',
+                description: 'Developed comprehensive Business Continuity Plan aligned with ISO 22301:2019, NIST SP 800-34, and COBIT frameworks. Includes detailed disaster recovery procedures, incident response protocols, and crisis management workflows.'
+            }
+        };
+        
+        function openModal(projectId) {
+            const modal = document.getElementById('mediaModal');
+            const data = projectData[projectId];
+            
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalMedia').innerHTML = data.media;
+            document.getElementById('modalDescription').textContent = data.description;
+            
+            modal.classList.add('active');
+            
+            const video = modal.querySelector('video');
+            if (video) video.play();
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            const video = modal.querySelector('video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+            modal.classList.remove('active');
+        }
+        
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('mediaModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1307,55 +1359,19 @@
                 }
             });
         });
-
-        document.querySelector('.dropdown-btn').addEventListener('click', function () {
+        
+        // Dropdown functionality
+        document.querySelector('.dropdown-btn').addEventListener('click', function (e) {
+            e.stopPropagation();
             this.parentElement.classList.toggle('show');
         });
-
+        
         document.addEventListener('click', function(e) {
             const dropdown = document.querySelector('.dropdown');
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('show');
             }
         });
-
-        function playDemo() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
-            modal.style.display = 'flex';
-            video.play();
-        }
-        
-        function closeModal() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
-            video.pause();
-            video.currentTime = 0;
-            modal.style.display = 'none';
-        }
-        
-        // Close modal if user clicks outside the video
-        window.addEventListener('click', function(e) {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
-            if (e.target === modal) {
-                video.pause();
-                video.currentTime = 0;
-                modal.style.display = 'none';
-            }
-        });
-
     </script>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal" style="display:none;">
-        <div class="video-modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <video id="demoVideo" controls>
-                <source src="demo/netAnomally.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
 </body>
 </html>
